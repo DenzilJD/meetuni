@@ -119,26 +119,26 @@ export const ChatBox = ({ setHome }) => {
                     padding='5px'
                     marginTop='10px'
                 >
-                    <Text color={t.role === 'user' ?'black':'lightcoral'}>{t.role === 'user' ? 'You' : 'Chatter'}</Text>
-                    <Text fontSize='1.5rem'>{t.content}</Text>
+                    <Text color={t.role === 'user' ? 'black' : 'lightcoral'}>{t.role === 'user' ? 'You' : 'Chatter'}</Text>
+                    <Text fontSize='1rem'>{t.content}</Text>
                 </Box>
             })}
         </Box>
-        {loading ? <Box>
+        {loading ? <Box
+            bgColor='rgb(17, 161, 113)'
+            marginLeft='auto'
+            maxWidth='60%'
+            borderRadius='20px'
+            padding='5px'
+            marginTop='10px'
+        >
             <Spinner thickness='4px'
                 speed='0.65s'
                 emptyColor='gray.200'
                 color='blue.500'
                 size='xl' />
-            <Text
-                bgColor='rgb(17, 161, 113)'
-                marginLeft='auto'
-                marginRight='0'
-                maxWidth='60%'
-                borderRadius='20px'
-                padding='5px'
-                alignItems='end'
-            >{latest}</Text>
+            <Text color='black'>You</Text>
+            <Text fontSize='1rem'>{latest}</Text>
         </Box> : ''}
         <Box marginTop='auto' display='flex' padding='15px'>
             <Input variant='flushed'
