@@ -108,32 +108,38 @@ export const ChatBox = ({ setHome }) => {
             }}
             display='flex'
             flexDir='column'
+            justifyContent='space-between'
         >
             {temp && temp.map(t => {
-                return <Text
+                return <Box
                     bgColor={t.role === 'user' ? 'rgb(17, 161, 113)' : 'rgb(85, 80, 80)'}
                     marginLeft={t.role === 'user' ? 'auto' : ''}
                     maxWidth='60%'
                     borderRadius='20px'
                     padding='5px'
+                    marginTop='10px'
                 >
-                    {t.content}
-                </Text>
+                    <Text color={t.role === 'user' ?'black':'lightcoral'}>{t.role === 'user' ? 'You' : 'Chatter'}</Text>
+                    <Text fontSize='1.5rem'>{t.content}</Text>
+                </Box>
             })}
-            {loading ? <>
-                <Spinner thickness='4px'
-                    speed='0.65s'
-                    emptyColor='gray.200'
-                    color='blue.500'
-                    size='xl' /><Text
-                        bgColor='rgb(17, 161, 113)'
-                        marginLeft='auto'
-                        maxWidth='60%'
-                        borderRadius='20px'
-                        padding='5px'
-                    >{latest}</Text>
-            </> : ''}
         </Box>
+        {loading ? <Box>
+            <Spinner thickness='4px'
+                speed='0.65s'
+                emptyColor='gray.200'
+                color='blue.500'
+                size='xl' />
+            <Text
+                bgColor='rgb(17, 161, 113)'
+                marginLeft='auto'
+                marginRight='0'
+                maxWidth='60%'
+                borderRadius='20px'
+                padding='5px'
+                alignItems='end'
+            >{latest}</Text>
+        </Box> : ''}
         <Box marginTop='auto' display='flex' padding='15px'>
             <Input variant='flushed'
                 placeholder='Chat with Chatter'
